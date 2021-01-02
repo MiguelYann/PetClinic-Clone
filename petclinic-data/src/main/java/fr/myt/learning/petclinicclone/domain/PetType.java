@@ -1,6 +1,6 @@
 package fr.myt.learning.petclinicclone.domain;
 
-public class PetType {
+public class PetType extends BaseEntity{
 
   private String name;
 
