@@ -14,7 +14,7 @@
     </parent>
     <groupId>fr.myt.learning</groupId>
     <artifactId>petclinic-clone</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>petclinic-clone</name>
     <description>Clone of famous PetClinic app</description>
     <properties>
@@ -39,6 +39,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/MiguelYann/PetClinic-Clone.git</developerConnection>
-    </scm>
+      <tag>petclinic-clone-0.0.1</tag>
+  </scm>
 
 </project>
