@@ -4,8 +4,9 @@ import java.util.Set;
 
 import fr.myt.learning.petclinicclone.domain.Owner;
 import fr.myt.learning.petclinicclone.services.CrudService;
+import fr.myt.learning.petclinicclone.services.OwnerService;
 
-public class OwnerMapService extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
   @Override
   public Owner findById(Long id) {
@@ -32,4 +33,8 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     super.delete(owner);
   }
 
+  @Override
+  public Owner findByLastName(String lastName) {
+    return null;
+  }
 }
