@@ -5,7 +5,9 @@ import java.util.Set;
 import fr.myt.learning.petclinicclone.domain.Vet;
 import fr.myt.learning.petclinicclone.services.CrudService;
 import fr.myt.learning.petclinicclone.services.VetService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override

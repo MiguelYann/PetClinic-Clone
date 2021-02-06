@@ -4,8 +4,6 @@ import fr.myt.learning.petclinicclone.domain.Owner;
 import fr.myt.learning.petclinicclone.domain.Vet;
 import fr.myt.learning.petclinicclone.services.OwnerService;
 import fr.myt.learning.petclinicclone.services.VetService;
-import fr.myt.learning.petclinicclone.services.map.OwnerMapService;
-import fr.myt.learning.petclinicclone.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -14,9 +12,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerMapService();
-        this.vetService = new VetMapService();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

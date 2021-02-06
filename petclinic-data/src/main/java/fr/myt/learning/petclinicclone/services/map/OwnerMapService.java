@@ -5,7 +5,9 @@ import java.util.Set;
 import fr.myt.learning.petclinicclone.domain.Owner;
 import fr.myt.learning.petclinicclone.services.CrudService;
 import fr.myt.learning.petclinicclone.services.OwnerService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
   @Override
