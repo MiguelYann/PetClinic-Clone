@@ -1,32 +1,51 @@
 package fr.myt.learning.petclinicclone.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import fr.myt.learning.petclinicclone.domain.BaseEntity;
 
-public abstract class AbstractMapService<T, ID> {
+import java.util.*;
 
-  protected Map<ID, T> map = new HashMap<>();
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 
-  T findById(ID id) {
-    return map.get(id);
-  }
+    protected Map<Long, T> map = new HashMap<>();
 
-  Set<T> findAll() {
-    return new HashSet<>(map.values());
-  }
+    T findById(ID id) {
+        return map.get(id);
+    }
 
-  T save(ID id, T data) {
-    map.put(id, data);
-    return data;
-  }
+    Set<T> findAll() {
+        return new HashSet<>(map.values());
+    }
 
-  void deleteById(ID id) {
-    map.remove(id);
-  }
+    T save(T data) {
+        if (data.getId() == null) {
+            data.setId(nextId());
+            map.put(data.getId(), data);
+        } else {
+            throw new RuntimeException("Cannot be null");
+        }
 
-  void delete(T data) {
-    map.entrySet().removeIf(entrie -> entrie.getValue().equals(data));
-  }
+        return data;
+    }
+
+    void deleteById(ID id) {
+        map.remove(id);
+    }
+
+    void delete(T data) {
+        map.entrySet().removeIf(entrie -> entrie.getValue().equals(data));
+    }
+
+    private Long nextId() {
+        Long nextId = null;
+        try {
+            nextId = Collections.max(map.keySet()) + 1;
+
+            return nextId;
+
+        } catch (NoSuchElementException e) {
+            nextId = 1L;
+        }
+        return nextId;
+
+    }
 }
